@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34316.72
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XYZ Bank - Selenium", "XYZ Bank\XYZ Bank - Selenium.csproj", "{1AE01C94-8568-4BD1-AF79-4852D19425CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XYZ Bank with BDD", "XYZ Bank with BDD\XYZ Bank with BDD.csproj", "{BB97FEB3-38BC-4644-AAD3-3A38D3C3AB64}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1AE01C94-8568-4BD1-AF79-4852D19425CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AE01C94-8568-4BD1-AF79-4852D19425CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AE01C94-8568-4BD1-AF79-4852D19425CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AE01C94-8568-4BD1-AF79-4852D19425CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB97FEB3-38BC-4644-AAD3-3A38D3C3AB64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB97FEB3-38BC-4644-AAD3-3A38D3C3AB64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB97FEB3-38BC-4644-AAD3-3A38D3C3AB64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB97FEB3-38BC-4644-AAD3-3A38D3C3AB64}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84C21F4A-843A-4AFA-A572-C7386F111B8D}
+	EndGlobalSection
+EndGlobal
