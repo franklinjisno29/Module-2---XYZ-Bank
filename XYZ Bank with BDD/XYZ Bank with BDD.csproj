@@ -19,10 +19,12 @@
 	  <PackageReference Include="Serilog.Sinks.Console" Version="5.0.0" />
 	  <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
 	  <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
+	  <PackageReference Include="ExtentReports" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Drivers\" />
+    <Folder Include="ExtentReports\" />
     <Folder Include="Logs\" />
     <Folder Include="Screenshots\" />
     <Folder Include="Support\" />

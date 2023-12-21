@@ -45,7 +45,7 @@ namespace AirIndia.Utilities
             string currDir = Directory.GetParent(@"../../../").FullName;
             extent = new ExtentReports();
             sparkReporter = new ExtentSparkReporter(currDir + "/ExtentReports/extent-report"
-                + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".html");
+                + DateTime.Now.ToString("yyyy.MM.dd_HH.mm.ss") + ".html");
 
             extent.AttachReporter(sparkReporter);
             ReadConfigSettings();
@@ -86,7 +86,7 @@ namespace AirIndia.Utilities
         public void LogTestResult(string testName, string result, string errorMessage = null)
         {
             Log.Information(result);
-            test = extent.CreateTest(testName);
+            //test = extent.CreateTest(testName);
             if(errorMessage == null)
             {
                 Log.Information(testName + " passed");
@@ -106,6 +106,7 @@ namespace AirIndia.Utilities
             string filePath = currDir + "/Screenshots/ss_" + DateTime.Now.ToString("yyyy.mm.dd_HH.mm.ss") + ".png";
             screenshot.SaveAsFile(filePath);
             Console.WriteLine("taken screenshot");
+            test?.AddScreenCaptureFromPath(filePath);
         }
         public static DefaultWait<IWebDriver> Waits(IWebDriver driver)
         {

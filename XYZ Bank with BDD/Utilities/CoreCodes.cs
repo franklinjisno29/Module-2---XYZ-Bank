@@ -9,11 +9,14 @@ using System.Threading.Tasks;
 using NUnit.Framework.Internal;
 using Serilog;
 using OpenQA.Selenium.Support.UI;
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+using XYZ_Bank_with_BDD.Hooks;
 
 namespace XYZ_Bank_with_BDD.Utilities
 {
-    internal class CoreCodes
-    {
+    public class CoreCodes
+    { 
         protected void TakeScreenshot(IWebDriver driver)
         {
             ITakesScreenshot its = (ITakesScreenshot)driver;
@@ -22,6 +25,7 @@ namespace XYZ_Bank_with_BDD.Utilities
             string filePath = currDir + "/Screenshots/ss_" + DateTime.Now.ToString("yyyy.mm.dd_HH.mm.ss") + ".png";
             screenshot.SaveAsFile(filePath);
             Console.WriteLine("taken screenshot");
+            AllHooks.test?.AddScreenCaptureFromPath(filePath);
         }
 
         protected void LogTestResult(string testName, string result, string? errorMessage = null)
@@ -30,9 +34,11 @@ namespace XYZ_Bank_with_BDD.Utilities
             if (errorMessage == null)
             {
                 Log.Information(testName + "passed");
+                AllHooks.test.Pass(result);
             }
             else
             {
+                AllHooks.test.Fail(result);
                 Log.Error($"Test failed for {testName} \n Exception: \n{errorMessage}");
             }
         }

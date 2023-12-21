@@ -27,6 +27,7 @@ namespace AirIndia.TestScripts
                 .CreateLogger();
             XYZBankHomePage xyzbank = new XYZBankHomePage(driver);
             Log.Information("Deposit Test Started");
+            test?.Info("Deposit Test Started");
             IWebElement pageLoadedElement = fluentWait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[contains(@ng-click,'customer()')]")));
 
             try
@@ -36,15 +37,17 @@ namespace AirIndia.TestScripts
                     accountpage.DepositAmount(accountno,amount);
                     IWebElement msg = driver.FindElement(By.XPath("//span[@ng-show='message']"));
                     string? msgtext = msg.Text;
+                    test = extent.CreateTest("Deposit Test");
                     TakeScreenshot();
+                    
                     Assert.That(msgtext,Does.Contain("Deposit Successful"));
                     LogTestResult("Deposit Test Test", "Deposit Test Success");
-                    test = extent.CreateTest("Deposit Test - Passed");
+                    test.Pass("Deposit Test Passed");
                 }
                 catch (AssertionException ex)
                 {
-                    TakeScreenshot();
-                    LogTestResult("Deposit Test", "Deposit Test Failed", ex.Message);
+                TakeScreenshot();
+                LogTestResult("Deposit Test", "Deposit Test Failed", ex.Message);
                     test.Fail("Deposit Test Failed");
                 }
         }

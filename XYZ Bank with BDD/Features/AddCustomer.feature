@@ -1,9 +1,9 @@
 ﻿Feature: Add customer
-
+Background: User will be on Homepage
 
 @E2E-Deposit_Amount
 Scenario: Add customer and Open Account
-	Given User will be on Homepage
+	#Given User will be on Homepage
 	When User will click on the Manager Login Button
 	Then Manager Page is loaded in the same page
 	When User Clicks on the Add customer Select Button

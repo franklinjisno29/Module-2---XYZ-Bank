@@ -16,19 +16,20 @@ namespace XYZ_Bank_with_BDD.StepDefinitions
     {
         IWebDriver? driver = AllHooks.driver;
 
-        [Given(@"User will be on Homepage")]
-        public void GivenUserWillBeOnHomepage()
-        {
-            var fluentWait = Waits(driver);
-            driver.Url = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login";
-            driver.Manage().Window.Maximize();
-            IWebElement pageLoadedElement = fluentWait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[contains(@ng-click,'customer()')]")));
-        }
+        //[Given(@"User will be on Homepage")]
+        //public void GivenUserWillBeOnHomepage()
+        //{
+        //    var fluentWait = Waits(driver);
+        //    //driver.Url = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login";
+        //    //driver.Manage().Window.Maximize();
+        //    IWebElement pageLoadedElement = fluentWait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[contains(@ng-click,'customer()')]")));
+        //}
 
         [When(@"User will click on the Customer Login Button")]
         public void WhenUserWillClickOnTheCustomerLoginButton()
         {
             var fluentWait = Waits(driver);
+            AllHooks.test = AllHooks.extent.CreateTest("Deposit Test");
             IWebElement custLoginButton = driver.FindElement(By.XPath("//button[contains(@ng-click,'customer()')]"));
             custLoginButton?.Click();
             IWebElement pageLoadedElement = fluentWait.Until(ExpectedConditions.ElementIsVisible(By.Id("userSelect")));

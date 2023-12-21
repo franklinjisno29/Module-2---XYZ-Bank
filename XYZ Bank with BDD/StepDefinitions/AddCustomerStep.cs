@@ -4,6 +4,7 @@ using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.CommonModels;
 using XYZ_Bank_with_BDD.Hooks;
 using XYZ_Bank_with_BDD.Utilities;
 
@@ -18,6 +19,7 @@ namespace XYZ_Bank_with_BDD.StepDefinitions
         public void WhenUserWillClickOnTheManagerLoginButton()
         {
             var fluentWait = Waits(driver);
+            AllHooks.test = AllHooks.extent.CreateTest("Add Customer Test");
             IWebElement ManagerLoginButton = driver.FindElement(By.XPath("//button[contains(@ng-click,'manager()')]"));
             ManagerLoginButton?.Click();
             IWebElement pageLoadedElement = fluentWait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[contains(@ng-click,'addCust()')]")));
@@ -31,10 +33,12 @@ namespace XYZ_Bank_with_BDD.StepDefinitions
             {
                 Assert.That(driver.Url, Does.Contain("manager"));
                 LogTestResult("Add Customer Test", "Manager Page Loaded");
+
             }
             catch (AssertionException ex)
             {
                 LogTestResult("Add Customer Test", "Manager Page Not Loaded", ex.Message);
+
             }
         }
 

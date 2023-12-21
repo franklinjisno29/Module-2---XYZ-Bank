@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AirIndia.Utilities
+namespace XYZ_Bank.Helpers
 {
     internal class CustomerData
     {

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using XYZ_Bank.Helpers;
 
 namespace AirIndia.TestScripts
 {
@@ -24,8 +25,10 @@ namespace AirIndia.TestScripts
                 .WriteTo.Console()
                 .WriteTo.File(logfilePath, rollingInterval: RollingInterval.Day)
                 .CreateLogger();
+            test = extent.CreateTest("Add Customer Test");
             XYZBankHomePage xyzbank = new XYZBankHomePage(driver);
             Log.Information("Add Customer Test Started");
+            test.Info("Add Customer Test Started");
             IWebElement pageLoadedElement = fluentWait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[contains(@ng-click,'manager()')]")));
             string? excelFilePath = currDir + "/TestData/InputData.xlsx";       //Excel Implementation
             string? sheetName = "Customer";
@@ -40,21 +43,20 @@ namespace AirIndia.TestScripts
                     string? currency = customerData?.Currency;
                     var managerpage = fluentWait.Until(d => xyzbank.ClickManagerLogin());
                     Log.Information("Manager Login Button Clicked");
+                    test.Info("Manager Login Button Clicked");
                     managerpage.FillCustomerDetails(firstName, lastName, postcode, currency);
                     Log.Information("Customer Details Filled & Account Opened");
+                    test.Info("Customer Details Filled & Account Opened");
                     IAlert AccountopenAlert = driver.SwitchTo().Alert();
                     string alertmsg = AccountopenAlert.Text;
                     AccountopenAlert.Accept();
-                    TakeScreenshot();
                     Assert.That(alertmsg, Does.Contain("Account created successfully"));
+                    TakeScreenshot();
                     LogTestResult("Add Customer Test", "Add Customer Test Success");
-                    test = extent.CreateTest("Add Customer Test - Passed");
                 }
                 catch (AssertionException ex)
                 {
-                    TakeScreenshot();
                     LogTestResult("Add Customer Test", "Add Customer Test Failed", ex.Message);
-                    test.Fail("Add Customer Test Failed");
                 }
             }
         }
