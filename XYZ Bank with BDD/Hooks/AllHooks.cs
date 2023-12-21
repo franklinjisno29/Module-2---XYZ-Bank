@@ -9,7 +9,7 @@ using XYZ_Bank_with_BDD.Utilities;
 
 namespace XYZ_Bank_with_BDD.Hooks
 {
-    [Binding]
+    [Binding] 
     public sealed class AllHooks
     {
         public static Dictionary<string, string>? properties;
