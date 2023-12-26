@@ -10,7 +10,7 @@ using XYZ_Bank_with_BDD.Utilities;
 
 namespace XYZ_Bank_with_BDD.StepDefinitions
 {
-    [Binding]
+    [Binding] 
     internal class AddCustomerStep : CoreCodes
     {
         IWebDriver? driver = AllHooks.driver;
