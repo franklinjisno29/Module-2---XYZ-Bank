@@ -33,7 +33,7 @@ namespace XYZ_Bank_with_BDD.Utilities
             Log.Information(result);
             if (errorMessage == null)
             {
-                Log.Information(testName + "passed");
+                Log.Information(testName + "passed"); 
                 AllHooks.test.Pass(result);
             }
             else
@@ -41,7 +41,7 @@ namespace XYZ_Bank_with_BDD.Utilities
                 AllHooks.test.Fail(result);
                 Log.Error($"Test failed for {testName} \n Exception: \n{errorMessage}");
             }
-        } 
+        }  
         public static DefaultWait<IWebDriver> Waits(IWebDriver driver)
         {
             DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(driver);
